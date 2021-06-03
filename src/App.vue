@@ -1,29 +1,269 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <header>
+    <h1>Chemistry Demonstrations</h1>
+    <p>
+      Providing information about different chemistry demonstration for
+      different college-level chemistry course topics
+    </p>
+  </header>
+  <nav class="main__navigation" id="nav">
+    <ul class="main__navigation-item">
+      <li><i class="fas fa-atom"></i><router-link to="/">Home</router-link></li>
+      <li>
+        <i class="fas fa-atom"></i
+        ><router-link to="Gallery.vue">Gallery</router-link>
+        <ul class="dropdown">
+          <div>
+            <li>General Chemistry I</li>
+            <li>General Chemistry II</li>
+            <li>Introduction to General Chemistry</li>
+            <li>Introduction to Organic Chemistry</li>
+            <li>Introduction to Biochemistry</li>
+            <li>Survey of Chemistry and Physics</li>
+            <div id="insidemarker"></div>
+          </div>
+        </ul>
+      </li>
+      <li>
+        <i class="fas fa-atom"></i><router-link to="/About">About</router-link>
+      </li>
+      <li>
+        <i class="fas fa-atom"></i
+        ><router-link to="/Contact">Contact Us</router-link>
+      </li>
+      <div id="marker"></div>
+    </ul>
+  </nav>
+  <main>
+    <router-view />
+  </main>
+  <footer>
+    <nav class="footer__navigation">
+      <ul class="footer__navigation-item">
+        <li>Home</li>
+        <li>Gallery</li>
+        <li>About</li>
+        <li>Contact us</li>
+      </ul>
+    </nav>
+  </footer>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-#nav {
-  padding: 30px;
+$primary-color: #007193;
+$secondary-color: #b98077;
+$tertiary-color: #768a96;
+$quatenary-color: #ebe8e2;
 
-  a {
+$min-width: 200px;
+
+@mixin transform($value) {
+  -webkit-transform: ($value);
+  -moz-transform: ($value);
+  -ms-transform: ($value);
+  transform: ($value);
+}
+@mixin transition($value) {
+  -webkit-transition: ($value);
+  -moz-transition: ($value);
+  -ms-transition: ($value);
+  transition: ($value);
+}
+
+%testing {
+  border: 5px solid blue;
+}
+
+%testing1 {
+  border: 5px solid red;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background-color: $quatenary-color;
+  padding: 1rem 4rem;
+  h1 {
+    color: $primary-color;
+    font-size: 3rem;
+  }
+  p {
+    color: $tertiary-color;
+    font-style: italic;
+  }
+}
+
+/*navigation animation that is adopted from https://codepen.io/dghez/pen/Kwoper*/
+
+nav {
+  background: $primary-color;
+  text-align: center;
+}
+i {
+  transition: transform 1s;
+}
+.main__navigation-item {
+  color: $quatenary-color;
+  position: relative;
+  list-style: none;
+  font-size: 0;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 0;
+  font-weight: bold;
+  text-align: center;
+  li {
+    font-size: 0.8rem;
+    display: inline-block;
+    position: relative;
+    padding: 15px 20px;
+    cursor: pointer;
+    z-index: 5;
+    min-width: $min-width;
+    font-size: 1rem;
+  }
+}
+li {
+  margin: 0;
+}
+.dropdown {
+  overflow: hidden;
+  list-style: none;
+  position: absolute;
+  padding: 15px 20px;
+  width: 200%;
+  div {
+    @include transform(translate(0, -200%));
+    @include transition(all 0.5s 0.1s);
+    position: relative;
+  }
+  li {
+    text-align: left;
+    display: block;
+    padding: 15px 20px;
+    width: 100%;
+    background: $secondary-color !important;
+    font-weight: normal;
+    text-transform: capitalize;
+    color: $quatenary-color;
+    @include transition(background-color 0.02s);
+  }
+  li:hover {
+    background: $tertiary-color !important;
+  }
+}
+#marker {
+  height: 6px;
+  background: $secondary-color !important;
+  position: absolute;
+  bottom: 0;
+  width: $min-width;
+  z-index: 2;
+  @include transition(all 0.35s);
+}
+
+@for $i from 1 through 4 {
+  .main__navigation-item li:nth-child(#{$i}) {
+    &:hover ul div {
+      @include transform(translate(0, 0));
+    }
+    &:hover i {
+      transform: rotate(1080deg);
+    }
+    &:hover ~ #marker {
+      @include transform(translate(#{(-1 + $i) * $min-width}, 0));
+    }
+  }
+}
+/*side menu*/
+.side__navigation {
+  background: white;
+  text-align: left;
+  width: 25rem;
+  padding-top: 2rem;
+  padding-left: 4rem;
+  .side__navigation-item {
+    color: $tertiary-color;
+    position: relative;
+    list-style: none;
+    font-size: 0;
+    text-transform: capitalize;
+    display: inline-block;
+    padding: 0;
     font-weight: bold;
-    color: #2c3e50;
+    text-align: left;
+    cursor: pointer;
+    li {
+      font-size: 0.8rem;
+      display: block;
+      position: relative;
+      padding: 15px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    li:hover {
+      background: $tertiary-color !important;
+      color: $quatenary-color;
+    }
+  }
+}
+/*main content*/
+.main__description {
+  margin: 1rem 2rem;
+  h2 {
+    color: $secondary-color;
+    font-size: 2rem;
+  }
+  .items {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    flex-wrap: wrap;
+    .item {
+      @extend %testing;
+      padding: 1rem;
+      margin: 1rem;
+      h3 {
+        color: $primary-color;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
+/*footer*/
+
+footer {
+  background-color: $quatenary-color;
+  nav {
+    background: $quatenary-color;
+    text-align: center;
+  }
+  .footer__navigation-item {
+    color: $primary-color;
+    position: relative;
+    list-style: none;
+    font-size: 0;
+    text-transform: capitalize;
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+    li {
+      font-size: 0.8rem;
+      display: inline-block;
+      position: relative;
+      padding: 15px 20px;
+      cursor: pointer;
+      z-index: 5;
+      min-width: $min-width;
+      font-size: 1rem;
     }
   }
 }
