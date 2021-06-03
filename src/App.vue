@@ -1,55 +1,67 @@
 <template>
-  <header>
-    <h1>Chemistry Demonstrations</h1>
-    <p>
-      Providing information about different chemistry demonstration for
-      different college-level chemistry course topics
-    </p>
-  </header>
-  <nav class="main__navigation" id="nav">
-    <ul class="main__navigation-item">
-      <li><i class="fas fa-atom"></i><router-link to="/">Home</router-link></li>
-      <li>
-        <i class="fas fa-atom"></i
-        ><router-link to="Gallery.vue">Gallery</router-link>
-        <ul class="dropdown">
-          <div>
-            <li>General Chemistry I</li>
-            <li>General Chemistry II</li>
-            <li>Introduction to General Chemistry</li>
-            <li>Introduction to Organic Chemistry</li>
-            <li>Introduction to Biochemistry</li>
-            <li>Survey of Chemistry and Physics</li>
-            <div id="insidemarker"></div>
-          </div>
+  <div id="app">
+    <!--header (same on all pages)-->
+    <header>
+      <h1>Chemistry Demonstrations</h1>
+      <p>
+        Providing information about different chemistry demonstration for
+        different college-level chemistry course topics
+      </p>
+    </header>
+    <!--navigation (same on all pages)-->
+    <div id="nav">
+      <nav class="main__navigation">
+        <ul class="main__navigation-item">
+          <li>
+            <i class="fas fa-atom"></i><router-link to="/">Home</router-link>
+          </li>
+          <li>
+            <i class="fas fa-atom"></i
+            ><router-link to="/gallery">Gallery</router-link>
+            <ul class="dropdown">
+              <div>
+                <li>General Chemistry I</li>
+                <li>General Chemistry II</li>
+                <li>Introduction to General Chemistry</li>
+                <li>Introduction to Organic Chemistry</li>
+                <li>Introduction to Biochemistry</li>
+                <li>Survey of Chemistry and Physics</li>
+                <div id="insidemarker"></div>
+              </div>
+            </ul>
+          </li>
+          <li>
+            <i class="fas fa-atom"></i
+            ><router-link to="/About">About</router-link>
+          </li>
+          <li>
+            <i class="fas fa-atom"></i
+            ><router-link to="/contact">Contact Us</router-link>
+          </li>
+          <div id="marker"></div>
         </ul>
-      </li>
-      <li>
-        <i class="fas fa-atom"></i><router-link to="/About">About</router-link>
-      </li>
-      <li>
-        <i class="fas fa-atom"></i
-        ><router-link to="/Contact">Contact Us</router-link>
-      </li>
-      <div id="marker"></div>
-    </ul>
-  </nav>
-  <main>
+      </nav>
+    </div>
+
     <router-view />
-  </main>
-  <footer>
-    <nav class="footer__navigation">
-      <ul class="footer__navigation-item">
-        <li>Home</li>
-        <li>Gallery</li>
-        <li>About</li>
-        <li>Contact us</li>
-      </ul>
-    </nav>
-  </footer>
+
+    <!--footer (same on all pages)-->
+
+    <footer>
+      <nav class="footer__navigation">
+        <ul class="footer__navigation-item">
+          <li>Home</li>
+          <li>Gallery</li>
+          <li>About</li>
+          <li>Contact us</li>
+        </ul>
+      </nav>
+    </footer>
+  </div>
 </template>
 
 <style lang="scss">
+/*General styling, need to copy for every page*/
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
@@ -60,6 +72,21 @@ $secondary-color: #b98077;
 $tertiary-color: #768a96;
 $quatenary-color: #ebe8e2;
 
+/*header styling*/
+header {
+  background-color: $quatenary-color;
+  padding: 1rem 4rem;
+  h1 {
+    color: $primary-color;
+    font-size: 3rem;
+  }
+  p {
+    color: $tertiary-color;
+    font-style: italic;
+  }
+}
+
+/*navigation animation that is adopted from https://codepen.io/dghez/pen/Kwoper*/
 $min-width: 200px;
 
 @mixin transform($value) {
@@ -75,164 +102,84 @@ $min-width: 200px;
   transition: ($value);
 }
 
-%testing {
-  border: 5px solid blue;
-}
-
-%testing1 {
-  border: 5px solid red;
-}
-
-body {
-  margin: 0;
-}
-
-header {
-  background-color: $quatenary-color;
-  padding: 1rem 4rem;
-  h1 {
-    color: $primary-color;
-    font-size: 3rem;
+#nav {
+  nav {
+    background: $primary-color;
+    text-align: center;
   }
-  p {
-    color: $tertiary-color;
-    font-style: italic;
+  i {
+    transition: transform 1s;
   }
-}
-
-/*navigation animation that is adopted from https://codepen.io/dghez/pen/Kwoper*/
-
-nav {
-  background: $primary-color;
-  text-align: center;
-}
-i {
-  transition: transform 1s;
-}
-.main__navigation-item {
-  color: $quatenary-color;
-  position: relative;
-  list-style: none;
-  font-size: 0;
-  text-transform: uppercase;
-  display: inline-block;
-  padding: 0;
-  font-weight: bold;
-  text-align: center;
-  li {
-    font-size: 0.8rem;
-    display: inline-block;
-    position: relative;
-    padding: 15px 20px;
-    cursor: pointer;
-    z-index: 5;
-    min-width: $min-width;
-    font-size: 1rem;
-  }
-}
-li {
-  margin: 0;
-}
-.dropdown {
-  overflow: hidden;
-  list-style: none;
-  position: absolute;
-  padding: 15px 20px;
-  width: 200%;
-  div {
-    @include transform(translate(0, -200%));
-    @include transition(all 0.5s 0.1s);
-    position: relative;
-  }
-  li {
-    text-align: left;
-    display: block;
-    padding: 15px 20px;
-    width: 100%;
-    background: $secondary-color !important;
-    font-weight: normal;
-    text-transform: capitalize;
+  .main__navigation-item {
     color: $quatenary-color;
-    @include transition(background-color 0.02s);
-  }
-  li:hover {
-    background: $tertiary-color !important;
-  }
-}
-#marker {
-  height: 6px;
-  background: $secondary-color !important;
-  position: absolute;
-  bottom: 0;
-  width: $min-width;
-  z-index: 2;
-  @include transition(all 0.35s);
-}
-
-@for $i from 1 through 4 {
-  .main__navigation-item li:nth-child(#{$i}) {
-    &:hover ul div {
-      @include transform(translate(0, 0));
-    }
-    &:hover i {
-      transform: rotate(1080deg);
-    }
-    &:hover ~ #marker {
-      @include transform(translate(#{(-1 + $i) * $min-width}, 0));
-    }
-  }
-}
-/*side menu*/
-.side__navigation {
-  background: white;
-  text-align: left;
-  width: 25rem;
-  padding-top: 2rem;
-  padding-left: 4rem;
-  .side__navigation-item {
-    color: $tertiary-color;
     position: relative;
     list-style: none;
     font-size: 0;
-    text-transform: capitalize;
+    text-transform: uppercase;
     display: inline-block;
     padding: 0;
     font-weight: bold;
-    text-align: left;
-    cursor: pointer;
+    text-align: center;
     li {
       font-size: 0.8rem;
-      display: block;
+      display: inline-block;
       position: relative;
       padding: 15px 20px;
-      font-size: 1rem;
       cursor: pointer;
+      z-index: 5;
+      min-width: $min-width;
+      font-size: 1rem;
+    }
+  }
+  li {
+    margin: 0;
+  }
+  .dropdown {
+    overflow: hidden;
+    list-style: none;
+    position: absolute;
+    padding: 15px 20px;
+    width: 200%;
+    div {
+      @include transform(translate(0, -200%));
+      @include transition(all 0.5s 0.1s);
+      position: relative;
+    }
+    li {
+      text-align: left;
+      display: block;
+      padding: 15px 20px;
+      width: 100%;
+      background: $secondary-color !important;
+      font-weight: normal;
+      text-transform: capitalize;
+      color: $quatenary-color;
+      @include transition(background-color 0.02s);
     }
     li:hover {
       background: $tertiary-color !important;
-      color: $quatenary-color;
     }
   }
-}
-/*main content*/
-.main__description {
-  margin: 1rem 2rem;
-  h2 {
-    color: $secondary-color;
-    font-size: 2rem;
+  #marker {
+    height: 6px;
+    background: $secondary-color !important;
+    position: absolute;
+    bottom: 0;
+    width: $min-width;
+    z-index: 2;
+    @include transition(all 0.35s);
   }
-  .items {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    flex-wrap: wrap;
-    .item {
-      @extend %testing;
-      padding: 1rem;
-      margin: 1rem;
-      h3 {
-        color: $primary-color;
-        font-size: 1.5rem;
+
+  @for $i from 1 through 4 {
+    .main__navigation-item li:nth-child(#{$i}) {
+      &:hover ul div {
+        @include transform(translate(0, 0));
+      }
+      &:hover i {
+        transform: rotate(1080deg);
+      }
+      &:hover ~ #marker {
+        @include transform(translate(#{(-1 + $i) * $min-width}, 0));
       }
     }
   }
