@@ -20,6 +20,9 @@
         <li>Colored Fire</li>
       </ul>
     </section>
+    <section>
+      <h3>Inspirational Quote of the Day</h3>
+      {{list}}
   </div>
 </template>
 <style scoped lang="scss">
@@ -45,3 +48,34 @@ section {
   }
 }
 </style>
+
+<script>
+export default {
+  name: "Home",
+  data() {
+    return {
+      list: [],
+    };
+  },
+  mounted() {
+    fetch("https://quotes.rest/qod")
+      .then((response) => {
+        console.log(response);
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Request failed with");
+        }
+      })
+      .then((json) => {
+        quote = json.contents.quotes[0].quote
+        author = json.contents.quotes[0].author
+        console.log(quote, "--by", author)
+        this.list = json;
+        })
+      .catch((err) => {
+        console.log("ERROR ", err);
+      });
+  },
+};
+</script>
