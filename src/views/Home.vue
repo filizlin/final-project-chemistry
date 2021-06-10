@@ -22,7 +22,7 @@
     </section>
   </div>
 </template>
-<style lang="scss">
+<style scoped lang="scss">
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
