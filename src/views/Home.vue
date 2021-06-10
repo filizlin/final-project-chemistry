@@ -22,7 +22,7 @@
     </section>
     <section>
       <h3>Inspirational Quote of the Day</h3>
-      {{list}}
+      {{quote + "--by" + author}}
   </div>
 </template>
 <style scoped lang="scss">
@@ -54,7 +54,8 @@ export default {
   name: "Home",
   data() {
     return {
-      list: [],
+      quote = ""
+      author = "",
     };
   },
   mounted() {
@@ -70,8 +71,6 @@ export default {
       .then((json) => {
         quote = json.contents.quotes[0].quote
         author = json.contents.quotes[0].author
-        console.log(quote, "--by", author)
-        this.list = json;
         })
       .catch((err) => {
         console.log("ERROR ", err);
