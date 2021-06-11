@@ -8,16 +8,18 @@
         different college-level chemistry course topics
       </p>
     </header>
+
     <!--navigation (same on all pages)-->
     <div id="nav">
       <nav class="main__navigation">
         <ul class="main__navigation-item">
           <li>
-            <i class="fas fa-atom"></i><router-link to="/">Home</router-link>
+            <font-awesome-icon :icon="['fas', 'atom']" />
+            <router-link to="/"> Home</router-link>
           </li>
           <li>
-            <i class="fas fa-atom"></i
-            ><router-link to="/gallery">Gallery</router-link>
+            <font-awesome-icon :icon="['fas', 'atom']" />
+            <router-link to="/gallery"> Gallery</router-link>
             <ul class="dropdown">
               <div>
                 <li>General Chemistry I</li>
@@ -31,12 +33,18 @@
             </ul>
           </li>
           <li>
-            <i class="fas fa-atom"></i
-            ><router-link to="/About">About</router-link>
+            <font-awesome-icon :icon="['fas', 'atom']" /><router-link
+              to="/About"
+            >
+              About</router-link
+            >
           </li>
           <li>
-            <i class="fas fa-atom"></i
-            ><router-link to="/contact">Contact Us</router-link>
+            <font-awesome-icon :icon="['fas', 'atom']" /><router-link
+              to="/contact"
+            >
+              Contact Us</router-link
+            >
           </li>
           <div id="marker"></div>
         </ul>
@@ -50,10 +58,10 @@
     <footer>
       <nav class="footer__navigation">
         <ul class="footer__navigation-item">
-          <li>Home</li>
-          <li>Gallery</li>
-          <li>About</li>
-          <li>Contact us</li>
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/gallery">Gallery</router-link></li>
+          <li><router-link to="/About">About</router-link></li>
+          <li><router-link to="/contact">Contact Us</router-link></li>
         </ul>
       </nav>
     </footer>
@@ -145,6 +153,7 @@ $min-width: 200px;
       @include transition(all 0.5s 0.1s);
       position: relative;
     }
+    /* This is not working, ask.  Tried "li a", "a", "router-link" all not working */
     li {
       text-align: left;
       display: block;
@@ -175,7 +184,8 @@ $min-width: 200px;
       &:hover ul div {
         @include transform(translate(0, 0));
       }
-      &:hover i {
+      /* This is not working, ask.  Tried adding class and :icon not working */
+      &:hover font-awesome-icon {
         transform: rotate(1080deg);
       }
       &:hover ~ #marker {
@@ -215,3 +225,9 @@ footer {
   }
 }
 </style>
+
+<script>
+export default {
+  name: "App",
+};
+</script>
