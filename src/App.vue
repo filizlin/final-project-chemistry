@@ -128,6 +128,8 @@ $min-width: 200px;
     padding: 0;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 0;
+    /* This is not working, ask.  Tried "li a", "a", "router-link" all not working */
     li {
       font-size: 0.8rem;
       display: inline-block;
@@ -153,7 +155,6 @@ $min-width: 200px;
       @include transition(all 0.5s 0.1s);
       position: relative;
     }
-    /* This is not working, ask.  Tried "li a", "a", "router-link" all not working */
     li {
       text-align: left;
       display: block;

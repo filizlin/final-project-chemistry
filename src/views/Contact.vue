@@ -203,8 +203,8 @@ $quatenary-color: #ebe8e2;
 }
 </style>
 <script>
-const app = new Vue({
-  el: '#contact-form',
+export default {
+  name: "Contact",
   data() {
     return {
       firstname: "",
@@ -213,8 +213,8 @@ const app = new Vue({
       PathHere: "",
       Topic: "",
       Comment: "",
-    }
-  }
+    };
+  },
   methods: {
     processForm: function() {
       let feedback = {
@@ -223,16 +223,16 @@ const app = new Vue({
         email: this.email,
         PathHere: this.PathHere,
         Topic: this.Topic,
-        Comment: this.Comment
-      }
-      console.log(feedback)
-      this.firstname: "",
-      this.lastname: "",
-      this.email: "",
-      this.PathHere: "",
-      this.Topic: "",
-      this.Comment: ""
-    }
-  }
-})
+        Comment: this.Comment,
+      };
+      console.log(feedback);
+      this.firstname = "";
+      this.lastname = "";
+      this.email = "";
+      this.PathHere = "";
+      this.Topic = "";
+      this.Comment = "";
+    },
+  },
+};
 </script>
