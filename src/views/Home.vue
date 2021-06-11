@@ -50,7 +50,7 @@ section {
 }
 </style>
 <script>
-export default {
+/*export default {
   name: "Home",
   data() {
     return {
@@ -69,12 +69,12 @@ export default {
     })
     .then((json) => {
       console.log(json)
-      //list = [json.contents.quotes[0].quote, json.contents.quotes[0].author]
+      list = [json.contents.quotes[0].quote, json.contents.quotes[0].author]
       this.list = json
     })
     .catch((err) => {
       console.log("ERROR ", err);
     });
   },
-};
+};*/
 </script>

@@ -7,9 +7,6 @@ import { faAtom } from "@fortawesome/free-solid-svg-icons";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-
-
-
 createApp(App)
   .use(router)
   .component("font-awesome-icon", FontAwesomeIcon)
