@@ -22,7 +22,8 @@
     </section>
     <section>
       <h3>Inspirational Quote of the Day</h3>
-      {{quote + "--by" + author}}
+      {{ (list[0], list[1]) }}
+    </section>
   </div>
 </template>
 <style scoped lang="scss">
@@ -48,33 +49,32 @@ section {
   }
 }
 </style>
-
 <script>
 export default {
   name: "Home",
   data() {
     return {
-      quote = ""
-      author = "",
-    };
+      list = []
+    }
   },
   mounted() {
     fetch("https://quotes.rest/qod")
-      .then((response) => {
-        console.log(response);
+    .then(response => {
+      console.log(response);
         if (response.ok) {
-          return response.json();
+        return response.json();
         } else {
-          throw new Error("Request failed with");
+        throw new Error("Request failed with");
         }
-      })
-      .then((json) => {
-        quote = json.contents.quotes[0].quote
-        author = json.contents.quotes[0].author
-        })
-      .catch((err) => {
-        console.log("ERROR ", err);
-      });
+    })
+    .then((json) => {
+      console.log(json)
+      //list = [json.contents.quotes[0].quote, json.contents.quotes[0].author]
+      this.list = json
+    })
+    .catch((err) => {
+      console.log("ERROR ", err);
+    });
   },
 };
 </script>
