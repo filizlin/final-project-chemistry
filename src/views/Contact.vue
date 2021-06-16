@@ -124,6 +124,16 @@
         You must agree before submitting.
       </div>
     </div>
+    <div>
+      <!-- Using modifiers -->
+      <b-button v-b-modal.my-modal>Show Modal</b-button>
+
+      <!-- Using value -->
+      <b-button v-b-modal="'my-modal'">Show Modal</b-button>
+
+      <!-- The modal -->
+      <b-modal id="my-modal">Hello From My Modal!</b-modal>
+    </div>
     <div
       class="modal fade"
       id="staticBackdrop"
@@ -187,11 +197,10 @@
 
 /*styling for heading (the rest is Boostrap)*/
 .contact {
-  margin: 1rem 4rem;
+  margin: 4rem 12rem;
   h2 {
     color: $secondary-color;
     font-size: 2rem;
-    padding: 1rem;
   }
 }
 </style>

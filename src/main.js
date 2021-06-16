@@ -6,5 +6,3 @@ createApp(App)
   .use(router)
   .mount("#app");
 
-library.add(faAtom);
-

@@ -14,7 +14,7 @@
       <h2 class="main__page-header">Glossary</h2>
       <section class="items">
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-3">
             <article>
               <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header"></div>
@@ -28,12 +28,12 @@
                     #fireworks
                     </div>
                   </p>
-                  <a href="#" class="card-link text-right">View Details</a>
+                  <a class="text-quatenary card-link"><router-link to="/Rainbow_fire">View Details</router-link></a>
                 </div>
               </div>
             </article>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-3">
             <article>
               <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header"></div>
@@ -44,7 +44,39 @@
                     <div class="text-info">
                     #placebolder <br />#placebolder <br />#placebolder <br /></div>
                   </p>
-                  <a href="#" class="card-link text-right">View Details</a>
+                  <a class="card-link text-right">Not a link</a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-3">
+            <article>
+              <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header"></div>
+                <div class="card-body">
+                  <h4 class="card-title">Place Holder</h4>
+                  <p class="card-text text-secondary">
+                    Place Holder <br /><br /><br />
+                    <div class="text-info">
+                    #placebolder <br />#placebolder <br />#placebolder <br /></div>
+                  </p>
+                  <a class="card-link text-right">Not a link</a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-sm-3">
+            <article>
+              <div class="card bg-light mb-3" style="max-width: 18rem;">
+                <div class="card-header"></div>
+                <div class="card-body">
+                  <h4 class="card-title">Place Holder</h4>
+                  <p class="card-text text-secondary">
+                    Place Holder <br /><br /><br />
+                    <div class="text-info">
+                    #placebolder <br />#placebolder <br />#placebolder <br /></div>
+                  </p>
+                  <a class="card-link text-right">Not a link</a>
                 </div>
               </div>
             </article>

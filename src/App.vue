@@ -31,9 +31,6 @@
             </ul>
           </li>
           <li class="text-quatenary">
-            <router-link to="/About"> About</router-link>
-          </li>
-          <li class="text-quatenary">
             <router-link to="/contact"> Contact Us</router-link>
           </li>
           <div id="marker"></div>
@@ -50,7 +47,6 @@
         <ul class="footer__navigation-item">
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/gallery">Gallery</router-link></li>
-          <li><router-link to="/About">About</router-link></li>
           <li><router-link to="/contact">Contact Us</router-link></li>
         </ul>
       </nav>

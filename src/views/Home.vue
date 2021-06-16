@@ -35,7 +35,7 @@
                     #fireworks
                     </div>
                   </p>
-                  <a href="#" class="card-link text-right">View Details</a>
+                  <a class="text-quatenary card-link"><router-link to="/Rainbow_fire">View Details</router-link></a>
                 </div>
               </div>
             </article>
@@ -51,7 +51,7 @@
                     <div class="text-info">
                     #placebolder <br />#placebolder <br />#placebolder <br /></div>
                   </p>
-                  <a href="#" class="card-link text-right">View Details</a>
+                  <a class="card-link text-right">Not a link</a>
                 </div>
               </div>
             </article>
