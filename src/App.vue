@@ -14,11 +14,9 @@
       <nav class="main__navigation">
         <ul class="main__navigation-item">
           <li>
-            <font-awesome-icon :icon="['fas', 'atom']" />
             <router-link to="/"> Home</router-link>
           </li>
           <li>
-            <font-awesome-icon :icon="['fas', 'atom']" />
             <router-link to="/gallery"> Gallery</router-link>
             <ul class="dropdown">
               <div>
@@ -32,19 +30,11 @@
               </div>
             </ul>
           </li>
-          <li>
-            <font-awesome-icon :icon="['fas', 'atom']" /><router-link
-              to="/About"
-            >
-              About</router-link
-            >
+          <li class="text-quatenary">
+            <router-link to="/About"> About</router-link>
           </li>
-          <li>
-            <font-awesome-icon :icon="['fas', 'atom']" /><router-link
-              to="/contact"
-            >
-              Contact Us</router-link
-            >
+          <li class="text-quatenary">
+            <router-link to="/contact"> Contact Us</router-link>
           </li>
           <div id="marker"></div>
         </ul>
@@ -70,20 +60,10 @@
 
 <style lang="scss">
 /*General styling, need to copy for every page*/
-* {
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-$primary-color: #007193;
-$secondary-color: #b98077;
-$tertiary-color: #768a96;
-$quatenary-color: #ebe8e2;
-
-/*header styling*/
+@import "./scss/_variables.scss";
 header {
   background-color: $quatenary-color;
-  padding: 1rem 4rem;
+  padding: 2rem 10rem;
   h1 {
     color: $primary-color;
     font-size: 3rem;
@@ -119,9 +99,8 @@ $min-width: 200px;
     transition: transform 1s;
   }
   .main__navigation-item {
-    color: $quatenary-color;
     position: relative;
-    list-style: none;
+
     font-size: 0;
     text-transform: uppercase;
     display: inline-block;
@@ -139,6 +118,11 @@ $min-width: 200px;
       z-index: 5;
       min-width: $min-width;
       font-size: 1rem;
+    }
+    a {
+      color: $quatenary-color;
+      list-style: none;
+      text-decoration: none;
     }
   }
   li {
@@ -205,9 +189,8 @@ footer {
     text-align: center;
   }
   .footer__navigation-item {
-    color: $primary-color;
     position: relative;
-    list-style: none;
+
     font-size: 0;
     text-transform: capitalize;
     display: inline-block;
@@ -222,6 +205,11 @@ footer {
       z-index: 5;
       min-width: $min-width;
       font-size: 1rem;
+    }
+    a {
+      color: $primary-color;
+      list-style: none;
+      text-decoration: none;
     }
   }
 }

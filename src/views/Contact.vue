@@ -182,15 +182,8 @@
 
 <style scoped lang="scss">
 /*General styling, need to copy for every page*/
-* {
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-$primary-color: #007193;
-$secondary-color: #b98077;
-$tertiary-color: #768a96;
-$quatenary-color: #ebe8e2;
+@import "./scss/_variables.scss";
+@import "./node_modules/bootstrap/scss/bootstrap";
 
 /*styling for heading (the rest is Boostrap)*/
 .contact {
