@@ -12,9 +12,8 @@
     </section>
     <section class="main__description">
       <h2 class="main__page-header">Glossary</h2>
-      <section class="items">
-        <div class="row">
-          <div class="col-sm-3">
+      <section class="cards">
+
             <article>
               <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header"></div>
@@ -32,8 +31,7 @@
                 </div>
               </div>
             </article>
-          </div>
-          <div class="col-sm-3">
+
             <article>
               <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header"></div>
@@ -48,8 +46,7 @@
                 </div>
               </div>
             </article>
-          </div>
-          <div class="col-sm-3">
+
             <article>
               <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header"></div>
@@ -64,8 +61,7 @@
                 </div>
               </div>
             </article>
-          </div>
-          <div class="col-sm-3">
+
             <article>
               <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header"></div>
@@ -80,8 +76,7 @@
                 </div>
               </div>
             </article>
-          </div>
-        </div>
+
       </section>
     </section>
   </div>
@@ -115,7 +110,7 @@
   text-align: left;
   width: 25rem;
   padding-top: 2rem;
-  padding-left: 4rem;
+  padding-left: 0rem;
   .side__navigation-item {
     color: $tertiary-color;
     position: relative;
@@ -149,20 +144,70 @@
     font-size: 2rem;
     padding-bottom: 1rem;
   }
-  .items {
+  
+  .cards {
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  article {
+    padding-left: 3rem;
+    display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
-    .cards {
-      article {
-        padding-left: 3rem;
-      p {
-        line-height: 1rem;
-        text-indent: 0rem;
-      }
-    }   
-    padding-bottom:4rem;
+    justify-content: space-around;
+    p {
+    line-height: 1rem;
+    text-indent: 0rem;
     }
+  }
+  .card {
+    width: 15rem;
+    height: 15rem;
+  }
+  padding-bottom:4rem;
+}
+  
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only (max-width: 768px) and (min-width: 576px) {
+  .gallery {
+    margin: 2rem 4rem;
+    padding: 0;
+    display: block;
+  }
+  .side__navigation {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    .side__navigation-item {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    }
+  }
+  .cards {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 576px) {
+  .gallery {
+    margin: 1rem 2rem;
+    padding: 0;
+    display: block;
+  }
+  .side__navigation {
+    display: none;
+    }
+  
+  .cards {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
   }
 }
 </style>

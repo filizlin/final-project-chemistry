@@ -13,15 +13,13 @@
         <p>
           Here we provide a selected list of chemistry demonstrations that can
           be conducted in a chemistry classroom. With features that allows you
-          to search by topic or course level. For each demonstration we also
-          provide a sample list of materials that is necessary for each
-          demonstration, as well as links to the provider
+          to cross-search by topic or course level. With each demonstration we identify some related websites and materials that will lead you to an external site and explore the different ways that this demonstration can be carried out.
         </p>
       </section>
-      <section class="cards">
+      <section>
         <h3>Popular Uploads</h3>
-        <div class="row">
-          <div class="col-sm-3">
+        <div class="cards">
+          <div>
             <article>
               <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header"></div>
@@ -40,7 +38,7 @@
               </div>
             </article>
           </div>
-          <div class="col-sm-3">
+          <div>
             <article>
               <div class="card bg-light mb-3" style="max-width: 18rem;">
                 <div class="card-header"></div>
@@ -81,6 +79,8 @@
   }
   h3 {
     color: $primary-color;
+    text-indent: 2rem;
+
   }
 }
 
@@ -98,12 +98,19 @@
 }
 
 .cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   article {
     padding-left: 3rem;
     p {
     line-height: 1rem;
     text-indent: 0rem;
     }
+  }
+  .card {
+    width: 15rem;
+    height: 15rem;
   }
   padding-bottom:4rem;
 }
@@ -126,6 +133,25 @@
     text-align: right;
   }
 }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only (max-width: 768px) and (min-width: 576px) {
+  .home {
+    margin: 4rem;
+    padding: 0;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 576px) {
+  .home {
+    margin: 2rem;
+    padding: 0;
+  }
+}
+
+
+
 </style>
 <script>
 export default {

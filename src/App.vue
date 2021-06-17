@@ -91,12 +91,8 @@ $min-width: 200px;
     background: $primary-color;
     text-align: center;
   }
-  i {
-    transition: transform 1s;
-  }
   .main__navigation-item {
     position: relative;
-
     font-size: 0;
     text-transform: uppercase;
     display: inline-block;
@@ -104,7 +100,6 @@ $min-width: 200px;
     font-weight: bold;
     text-align: center;
     margin-bottom: 0;
-    /* This is not working, ask.  Tried "li a", "a", "router-link" all not working */
     li {
       font-size: 0.8rem;
       display: inline-block;
@@ -206,6 +201,43 @@ footer {
       color: $primary-color;
       list-style: none;
       text-decoration: none;
+    }
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only (max-width: 768px) and (min-width: 576px) {
+  .dropdown {
+    display: none;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 576px) {
+  header {
+    width: 100%;
+    padding: 1rem 3rem;
+  }
+  #nav {
+    .main__navigation-item {
+      li {
+        display: block;
+        min-width: 100%;
+      }
+      .dropdown {
+        display: none;
+      }
+    }
+  }
+  #marker {
+    display: none;
+  }
+  footer {
+    .footer__navigation-item {
+      li {
+        display: block;
+        min-width: 100%;
+      }
     }
   }
 }
